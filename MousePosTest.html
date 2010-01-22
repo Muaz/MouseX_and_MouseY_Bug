@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+<html id="ht1">
+<head>
+<title>Mouse Position Inside Element</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js" type="text/javascript"></script>
+<script src="MousePositionFunction.js" type=""></script>
+<script type="text/javascript">
+
+    function handleEvent(oEvent,id) {
+        var oTextbox = document.getElementById("txt1");
+        var elem = document.getElementById(id);
+        var xp = GetMousePositionInElement(oEvent,elem).x;
+        var yp = GetMousePositionInElement(oEvent,elem).y;
+
+        var Name = elem.id;
+
+        oTextbox.value += "\n mouse position inside " + Name + " is at (" + xp + ", " + yp + ")";
+
+    }
+       
+</script>
+</head>
+<body id="b1">
+
+      <P>Use your mouse to click the red or yellow square.</p>
+  
+<div style="width: 100px; height: 100px; background-color: red"
+     onmousedown="handleEvent(event, id)" 
+     id="red square">
+
+<div name="yellow square" style="width: 50px; height: 50px; background-color: yellow; position:absolute; left:33px; top:77px;"
+         id="yellow square" onmousedown="handleEvent(event, id)"></div></div>
+
+<P id="p1"><textarea id="txt1" rows="15" cols="50"></textarea></p>
+
+</body>
+</html>
